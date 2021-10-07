@@ -116,7 +116,7 @@ function App() {
       Step 3 {'>>'}
       <ul >
         {step3.map((x: string) => {
-          return <li style={{ display: 'inline', }}>* {x} </li>
+          return <li >* {x} </li>
         })}
       </ul>
 
@@ -125,7 +125,7 @@ function App() {
       Step 4 {'>>'}
       <ul >
         {step4.map((x: string) => {
-          return <li style={{ display: 'inline', }}>* {x} </li>
+          return <li >* {x} </li>
         })}
       </ul>
       <br />
@@ -133,7 +133,7 @@ function App() {
       Step 5 {'>>'}
       <ul >
         {[one, two, three, four, five].map((x: string) => {
-          return <li style={{ display: 'inline', }}>* {x} </li>
+          return <li >* {x} </li>
         })}
       </ul>
 
