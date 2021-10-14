@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
 .App {
   /* text-align: center; */
   padding: 1rem 2rem;
+  font-family: 'Patrick Hand', cursive;
   font-size: 13px;
 }
 
@@ -20,21 +23,29 @@ ul > li {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: fantasy;
+  font-family: 'Patrick Hand', cursive;
+  font-weight: bold;
   font-size: 35px;
-  padding-top: 10px;
+  /* padding-top: 10px;
   padding-bottom: 5px;
   padding-left: 3px;
-  padding-right: 3px;
+  padding-right: 3px; */
+  padding: 0.5rem;
 }
 
 input {
   font-size: 14px;
   margin: 10px;
   padding: 5px 10px;
+  font-family: 'Patrick Hand', cursive;
 }
 input[type='submit'] {
   font-size: 14px !important;
   margin: 10px !important;
   padding: 5px 10px !important;
+  font-family: 'Patrick Hand', cursive;
+}
+button {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.25rem !important;
 }
