@@ -1,6 +1,9 @@
+// import { randomBytes } from 'crypto';
 import React, { useState } from 'react';
 
 import './App.css';
+
+let timer: any = null;
 
 function App() {
   const [one, setOne] = useState('A')
@@ -11,12 +14,12 @@ function App() {
 
   const [step3, setStep3] = useState<string[]>([])
   const [step4, setStep4] = useState<string[]>([])
-  const [step5, setStep5] = useState<string[]>([])
+  // const [step5, setStep5] = useState<string[]>([])
 
   // 
+  // const [timer, setTimer] = useState<any>()
   const [first, setFirst] = useState(0)
   const [second, setSecond] = useState(0)
-
 
   const getRandomInt = (min: number, max: number) => {
     min = Math.ceil(min);
@@ -52,7 +55,6 @@ function App() {
       return [...results]
     })
   }
-
 
   const gen4 = () => {
     // init 5 items - // ramdom result 3 items 
@@ -92,17 +94,19 @@ function App() {
     gen4()
   }
 
-  const gen2Numbers = () => {
+  // timer utility
+  const handleStartTimer = () => {
+    timer = setInterval(() => {
+      let num: number = getRandomInt(0, 9)
+      setFirst(num)
+      num = getRandomInt(0, 9)
+      setSecond(num)
+    }, 20);
+  }
 
-    // gen first
-    let ranFirstNumber: number = getRandomInt(0, 9)
-
-    // gen second
-    let ranSecondNumber: number = getRandomInt(0, 9)
-
-    setFirst(ranFirstNumber)
-    setSecond(ranSecondNumber)
-
+  const handleStopTimer = () => {
+    clearInterval(timer);
+    timer = null;
   }
 
   return (
@@ -134,7 +138,7 @@ function App() {
       Step 3 {'>>'}
       <ul >
         {step3.map((x: string) => {
-          return <li >{x} </li>
+          return <li key={x + '1'} >{x} </li>
         })}
       </ul>
 
@@ -143,7 +147,7 @@ function App() {
       Step 4 {'>>'}
       <ul >
         {step4.map((x: string) => {
-          return <li >{x} </li>
+          return <li key={x + '2'} >{x} </li>
         })}
       </ul>
       <br />
@@ -151,13 +155,13 @@ function App() {
       Step 5 {'>>'}
       <ul >
         {[one, two, three, four, five].map((x: string) => {
-          return <li >{x} </li>
+          return <li key={x + '3'} >{x} </li>
         })}
       </ul>
 
       <br /><br />
       <hr />
-      <h1>      Geneate 2 numbers from [0:9]</h1>
+      <h1>      Generate 2 numbers from [0:9]</h1>
       <hr />
       <button type="submit"
         style={{
@@ -166,14 +170,24 @@ function App() {
           padding: '5px',
         }}
         onClick={() => {
-          gen2Numbers()
+          handleStartTimer();
         }
         }>GENEATE</button>
+      <button type="submit"
+        style={{
+          fontSize: '14px',
+          margin: '10px',
+          padding: '5px',
+        }}
+        onClick={() => {
+          handleStopTimer();
+        }
+        }>stop</button>
 
       <hr />
       <ul >
-        {[first, second].map((x: number) => {
-          return <li >{x} </li>
+        {[first, second].map((x: number, idx: number) => {
+          return <li key={idx} >{x} </li>
         })}
       </ul>
 
