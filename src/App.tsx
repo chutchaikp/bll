@@ -13,6 +13,10 @@ function App() {
   const [step4, setStep4] = useState<string[]>([])
   const [step5, setStep5] = useState<string[]>([])
 
+  // 
+  const [first, setFirst] = useState(0)
+  const [second, setSecond] = useState(0)
+
 
   const getRandomInt = (min: number, max: number) => {
     min = Math.ceil(min);
@@ -88,11 +92,25 @@ function App() {
     gen4()
   }
 
+  const gen2Numbers = () => {
+
+    // gen first
+    let ranFirstNumber: number = getRandomInt(0, 9)
+
+    // gen second
+    let ranSecondNumber: number = getRandomInt(0, 9)
+
+    setFirst(ranFirstNumber)
+    setSecond(ranSecondNumber)
+
+  }
+
   return (
     <div className="App" >
-      <div>
+      <h1>
         K.Chui App
-      </div>
+      </h1>
+
       <hr />
       <input type="text" value={one} onChange={(e) => setOne(e.target.value)} />
       <input type="text" value={two} onChange={(e) => setTwo(e.target.value)} />
@@ -116,7 +134,7 @@ function App() {
       Step 3 {'>>'}
       <ul >
         {step3.map((x: string) => {
-          return <li >* {x} </li>
+          return <li >{x} </li>
         })}
       </ul>
 
@@ -125,7 +143,7 @@ function App() {
       Step 4 {'>>'}
       <ul >
         {step4.map((x: string) => {
-          return <li >* {x} </li>
+          return <li >{x} </li>
         })}
       </ul>
       <br />
@@ -133,7 +151,29 @@ function App() {
       Step 5 {'>>'}
       <ul >
         {[one, two, three, four, five].map((x: string) => {
-          return <li >* {x} </li>
+          return <li >{x} </li>
+        })}
+      </ul>
+
+      <br /><br />
+      <hr />
+      <h1>      Geneate 2 numbers from [0:9]</h1>
+      <hr />
+      <button type="submit"
+        style={{
+          fontSize: '14px',
+          margin: '10px',
+          padding: '5px',
+        }}
+        onClick={() => {
+          gen2Numbers()
+        }
+        }>GENEATE</button>
+
+      <hr />
+      <ul >
+        {[first, second].map((x: number) => {
+          return <li >{x} </li>
         })}
       </ul>
 
