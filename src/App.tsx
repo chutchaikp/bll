@@ -115,7 +115,7 @@ function App() {
         K.Chui App
       </h1>
 
-      <hr />
+
       <input type="text" value={one} onChange={(e) => setOne(e.target.value)} />
       <input type="text" value={two} onChange={(e) => setTwo(e.target.value)} />
       <input type="text" value={three} onChange={(e) => setThree(e.target.value)} />
@@ -133,7 +133,7 @@ function App() {
         }
         }>GENEATE</button>
 
-      <hr />
+      <br />
 
       Step 3 {'>>'}
       <ul >
@@ -160,9 +160,9 @@ function App() {
       </ul>
 
       <br /><br />
-      <hr />
+
       <h1>      Generate 2 numbers from [0:9]</h1>
-      <hr />
+
       <button type="submit"
         style={{
           fontSize: '14px',
@@ -184,8 +184,8 @@ function App() {
         }
         }>stop</button>
 
-      <hr />
-      <ul >
+
+      <ul className="fixed" >
         {[first, second].map((x: number, idx: number) => {
           return <li key={idx} >{x} </li>
         })}

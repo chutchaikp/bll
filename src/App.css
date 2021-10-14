@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
+body {
+  color: white;
+  background-color: #1a202c;
+}
+h1 {
+  font-size: 3.25rem !important;
+}
 .App {
   /* text-align: center; */
   padding: 1rem 2rem;
@@ -16,6 +23,22 @@ ul {
 ul > li {
   padding: 0.5rem;
   background-color: aqua;
+  /* margin: 20px 10px; */
+  margin: 5px;
+  border: 5px solid blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Patrick Hand', cursive;
+  font-weight: bold;
+  font-size: 35px;
+  padding: 0 0.25rem;
+  min-width: 2rem;
+  color: #2c2c2d;
+}
+ul.fixed > li {
+  padding: 0.5rem;
+  background-color: aqua;
   margin: 20px 10px;
   border: 5px solid blue;
   width: 20px;
@@ -26,19 +49,21 @@ ul > li {
   font-family: 'Patrick Hand', cursive;
   font-weight: bold;
   font-size: 35px;
-  /* padding-top: 10px;
-  padding-bottom: 5px;
-  padding-left: 3px;
-  padding-right: 3px; */
   padding: 0.5rem;
+  color: #2c2c2d;
 }
 
 input {
-  font-size: 14px;
-  margin: 10px;
-  padding: 5px 10px;
+  font-size: 1.25rem;
+  margin: 5px;
   font-family: 'Patrick Hand', cursive;
+  background-color: #2d3748 !important;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 5px 1rem;
 }
+
 input[type='submit'] {
   font-size: 14px !important;
   margin: 10px !important;
@@ -47,5 +72,12 @@ input[type='submit'] {
 }
 button {
   font-family: 'Patrick Hand', cursive;
-  font-size: 1.25rem !important;
+  font-size: 1rem !important;
+  padding: 3px 1rem !important;
+  border-radius: 100px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: blue;
+  background-color: #e22cdf;
+  color: white;
 }
