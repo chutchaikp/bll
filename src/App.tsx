@@ -1,5 +1,11 @@
 // import { randomBytes } from 'crypto';
+import { Button } from '@chakra-ui/react';
 import React, { useState } from 'react';
+import BeatLoader from "react-spinners/BeatLoader";
+import logo from './logo.png'
+
+import { Text, VStack } from '@chakra-ui/react';
+
 
 import './App.css';
 
@@ -20,6 +26,7 @@ function App() {
   // const [timer, setTimer] = useState<any>()
   const [first, setFirst] = useState(0)
   const [second, setSecond] = useState(0)
+  const [isRunning, setIsRunning] = useState(false)
 
   const getRandomInt = (min: number, max: number) => {
     min = Math.ceil(min);
@@ -96,6 +103,10 @@ function App() {
 
   // timer utility
   const handleStartTimer = () => {
+    if (isRunning === true) return;
+
+    setIsRunning(true)
+
     timer = setInterval(() => {
       let num: number = getRandomInt(0, 9)
       setFirst(num)
@@ -105,15 +116,33 @@ function App() {
   }
 
   const handleStopTimer = () => {
+    if (isRunning === false) return;
+    setIsRunning(false)
+
     clearInterval(timer);
     timer = null;
   }
 
   return (
     <div className="App" >
-      <h1>
-        K.Chui App
-      </h1>
+
+      {/* <Text
+        bgGradient="linear(to-l, '#7928CA', '#FF0080')"
+        bgClip="text"
+        fontSize="6xl"
+        fontWeight="extrabold"
+      >
+        Welcome to Chakra UI
+      </Text> */}
+
+
+
+      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.25rem', }}>
+        <img className="spin-logo" src={logo} alt="K.Chui" width={50} />
+        <span style={{ color: 'cyan', marginLeft: '70px', fontSize: '3rem', }}>
+          K.Chui App
+        </span>
+      </div>
 
 
       <input type="text" value={one} onChange={(e) => setOne(e.target.value)} />
@@ -172,7 +201,15 @@ function App() {
         onClick={() => {
           handleStartTimer();
         }
-        }>GENEATE</button>
+        }>
+        {isRunning === true
+          ?
+          // 'GENEATING...' 
+          <BeatLoader size={8} color="white" />
+          :
+          'GENERATE'
+        }
+      </button>
       <button type="submit"
         style={{
           fontSize: '14px',
@@ -182,9 +219,21 @@ function App() {
         onClick={() => {
           handleStopTimer();
         }
-        }>stop</button>
+        }>STOP
+      </button>
 
+      {/* <BeatLoader size={8} color="white" /> */}
 
+      {/* <Button
+        isLoading
+        colorScheme="blue"
+        spinner={<BeatLoader size={8} color="white" />}
+      >
+        Click me
+      </Button> */}
+
+      <br />
+      Result {'>>'}
       <ul className="fixed" >
         {[first, second].map((x: number, idx: number) => {
           return <li key={idx} >{x} </li>
